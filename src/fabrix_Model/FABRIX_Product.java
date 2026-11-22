@@ -12,27 +12,26 @@ public class FABRIX_Product {
     
    private String stockUnit;
     private String prodName;
-    private String prodCategory;
+    private String prodCat;
     private String size;
     private String color;
     private double price;
     private int prodQty;
 
     // Constructor
-    public FABRIX_Product(String sku, String name, String category,
+    public FABRIX_Product(String stockUnit, String prodName, String prodCat,
                    String size, String color,
-                   double price, int quantity) {
+                   double price, int prodQty) {
 
         this.stockUnit = stockUnit;
-        this.prodName = name;
-        this.prodCategory = category;
+        this.prodName = prodName;
+        this.prodCat = prodCat;
         this.size = size;
         this.color = color;
         this.price = price;
-        this.prodQty = quantity;
+        this.prodQty = prodQty;
     }
 
-    // Getters
     public String getStockUnit() {
         return stockUnit;
     }
@@ -42,7 +41,7 @@ public class FABRIX_Product {
     }
 
     public String getCategory() {
-        return prodCategory;
+        return prodCat;
     }
 
     public String getSize() {
@@ -66,8 +65,8 @@ public class FABRIX_Product {
         this.prodName = name;
     }
 
-    public void setCategory(String category) {
-        this.prodCategory = category;
+    public void setCat(String category) {
+        this.prodCat = category;
     }
 
     public void setSize(String size) {
