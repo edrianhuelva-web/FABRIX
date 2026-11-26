@@ -318,7 +318,7 @@ public class DashboardFrame extends javax.swing.JFrame {
                 {"Linen Shirt", " M", "3"},
                 {"Tailored Trousers", "S", "2"},
                 {"Silk Blouse", "M", "4"},
-                {"Knit Cardigan", "L", null}
+                {"Knit Cardigan", "L", "3"}
             },
             new String [] {
                 "Item", "Size", "Qty Left"
@@ -348,7 +348,7 @@ public class DashboardFrame extends javax.swing.JFrame {
                 {"#FRX-1048", "Maison Textiles", "Pending"},
                 {"#FRX-1047", "Atelier Supply", "Processing"},
                 {"#FRX-1046", "Studio Linen", "Shipped"},
-                {"#FRX-1045", "Maison Textiles", null}
+                {"#FRX-1045", "Maison Textiles", "Delivered"}
             },
             new String [] {
                 "Order #", "Supplier", "Status"

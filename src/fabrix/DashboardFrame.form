@@ -638,7 +638,7 @@
                               <Data value="3"/>
                               <Data value="2"/>
                               <Data value="4"/>
-                              <Data value="null"/>
+                              <Data value="3"/>
                             </Column>
                           </Table>
                         </Property>
@@ -740,7 +740,7 @@
                               <Data value="Pending"/>
                               <Data value="Processing"/>
                               <Data value="Shipped"/>
-                              <Data value="null"/>
+                              <Data value="Delivered"/>
                             </Column>
                           </Table>
                         </Property>
