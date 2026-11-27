@@ -27,6 +27,7 @@ public class DashboardFrame extends javax.swing.JFrame {
     public DashboardFrame() {
         initComponents();
         styleTables();
+        styleSidebar();
         
         try {
             service = new InventoryService();
@@ -35,43 +36,170 @@ public class DashboardFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error loading data: " + ex.getMessage());
         }
     }
+    
+    private void styleSidebar() {
+        javax.swing.JButton[] navButtons = {jButton1, jButton2, jButton3, jButton4};
+        for (javax.swing.JButton btn : navButtons) {
+            btn.setUI(new javax.swing.plaf.basic.BasicButtonUI() {
+                @Override
+                public void paint(java.awt.Graphics g, javax.swing.JComponent c) {
+                    javax.swing.AbstractButton b = (javax.swing.AbstractButton) c;
+                    if (Boolean.TRUE.equals(b.getClientProperty("active"))) {
+                        java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+                        g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+                        g2.setColor(new Color(238, 198, 67));
+                        g2.fillRoundRect(0, 0, c.getWidth(), c.getHeight(), 10, 10);
+                        g2.dispose();
+                    }
+                    super.paint(g, c);
+                }
+            });
+            btn.setContentAreaFilled(false);
+            btn.setBorderPainted(false);
+            btn.setFocusPainted(false);
+            btn.setOpaque(false);
+            btn.setFont(new Font("SansSerif", Font.PLAIN, 13));
+            btn.setForeground(new Color(220, 220, 220));
+            btn.setBorder(BorderFactory.createEmptyBorder(11, 14, 11, 14));
+            btn.setMinimumSize(new Dimension(190, 40));
+            btn.setPreferredSize(new Dimension(190, 40));
+            btn.setMaximumSize(new Dimension(190, 40));
+            btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        }
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    }
+
+    private void updateActiveButton(String pageName) {
+        Color activeBg = new Color(238, 198, 67);
+        Color inactiveBg = new Color(20, 20, 20);
+        Color activeText = new Color(20, 20, 20);
+        Color inactiveText = new Color(220, 220, 220);
+
+        boolean isDash = pageName.equals(DASHBOARD);
+        roundedPanel1.setBackground(isDash ? activeBg : inactiveBg);
+        roundedPanel1.setBorderColor(isDash ? activeBg : inactiveBg);
+        roundedPanel1.repaint();
+        jLabel3.setForeground(isDash ? activeText : inactiveText);
+        jLabel3.setFont(new Font("SansSerif", isDash ? Font.BOLD : Font.PLAIN, 13));
+
+        javax.swing.JButton[] btns = {jButton1, jButton2, jButton3, jButton4};
+        String[] keys = {STOCK, ADD, ORDER, PROGRESS};
+
+        for (int i = 0; i < btns.length; i++) {
+            boolean active = pageName.equals(keys[i]);
+            btns[i].setOpaque(active);
+            btns[i].setBackground(active ? activeBg : inactiveBg);
+            btns[i].setForeground(active ? activeText : inactiveText);
+            btns[i].setFont(new Font("SansSerif", active ? Font.BOLD : Font.PLAIN, 13));
+            btns[i].repaint();
+        }
+    }
     public void loadDashboardData() {
-        // Update the 3 top cards
         lblTotalItems.setText(String.format("%,d", service.totalUnits()));
         lblLowStock.setText(String.valueOf(service.lowStockAlerts()));
         lblPendingOrders.setText(String.valueOf(service.pendingOrders()));
 
-        // Load Low Stock table
         DefaultTableModel lowStockModel = (DefaultTableModel) tblLowStock.getModel();
         lowStockModel.setRowCount(0);
         for (Product p : service.lowStockItems(5)) {
             lowStockModel.addRow(new Object[]{ p.getName(), p.getSize(), p.getStock() });
         }
 
-        // Load Recent Orders table
         DefaultTableModel ordersModel = (DefaultTableModel) tblRecentOrders.getModel();
         ordersModel.setRowCount(0);
         for (Order o : service.recentOrders(5)) {
             ordersModel.addRow(new Object[]{ o.getId(), o.getSupplier(), o.getStatus().toString() });
         }
     }
+    public void refreshAll() {
+        loadDashboardData();
+    }
+    
+    public static final String DASHBOARD = "dashboard";
+    public static final String STOCK = "stock";
+    public static final String ADD = "add";
+    public static final String ORDER = "order";
+    public static final String PROGRESS = "progress";
+    public static final String ABOUT = "about";
+
+    private java.awt.Component[] dashboardViews;
+    private java.awt.LayoutManager dashboardLayout;
+    private StockPage stockPage;
+    private AddPage addPage;
+    private OrderPage orderPage;
+    private ProgressPage progressPage;
+    private AboutPage aboutPage;
+
+    public void show(String pageName) {
+        updateActiveButton(pageName);
+        
+        if (dashboardViews == null) {
+            dashboardViews = mainContentPanel.getComponents();
+            dashboardLayout = mainContentPanel.getLayout();
+        }
+
+        mainContentPanel.removeAll();
+        mainContentPanel.setLayout(new java.awt.BorderLayout());
+
+        switch (pageName) {
+            case STOCK -> {
+                if (stockPage == null) stockPage = new StockPage(service, this);
+                stockPage.refresh();
+                mainContentPanel.add(stockPage, java.awt.BorderLayout.CENTER);
+            }
+            case ADD -> {
+                if (addPage == null) addPage = new AddPage(service, this);
+                addPage.refresh();
+                mainContentPanel.add(addPage, java.awt.BorderLayout.CENTER);
+            }
+            case ORDER -> {
+                if (orderPage == null) orderPage = new OrderPage(service, this);
+                orderPage.refresh();
+                mainContentPanel.add(orderPage, java.awt.BorderLayout.CENTER);
+            }
+            case PROGRESS -> {
+                if (progressPage == null) progressPage = new ProgressPage(service, this);
+                progressPage.refresh();
+                mainContentPanel.add(progressPage, java.awt.BorderLayout.CENTER);
+            }
+            case ABOUT -> {
+                if (aboutPage == null) aboutPage = new AboutPage(service, this);
+                aboutPage.refresh();
+                mainContentPanel.add(aboutPage, java.awt.BorderLayout.CENTER);
+            }
+            default -> {
+                loadDashboardData();
+                mainContentPanel.setLayout(dashboardLayout);
+                for (java.awt.Component c : dashboardViews) {
+                    mainContentPanel.add(c);
+                }
+            }
+        }
+
+        mainContentPanel.revalidate();
+        mainContentPanel.repaint();
+    }
     private void styleTables() {
-    // 1. Remove default gray borders from the ScrollPanes wrapping the tables
+        
     jScrollPane1.setBorder(BorderFactory.createEmptyBorder());
     jScrollPane1.getViewport().setBackground(Color.WHITE);
     jScrollPane2.setBorder(BorderFactory.createEmptyBorder());
     jScrollPane2.getViewport().setBackground(Color.WHITE);
 
-    // 2. Style Table Headers
     JTable[] tables = {tblLowStock, tblRecentOrders};
     for (JTable table : tables) {
         table.getTableHeader().setBackground(Color.WHITE);
         table.getTableHeader().setForeground(new Color(115, 115, 115));
         table.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 12));
         table.getTableHeader().setPreferredSize(new Dimension(0, 35));
+        
+        table.setDefaultEditor(Object.class, null);
+        table.setDefaultEditor(String.class, null);
+        
+        table.setSelectionBackground(new Color(245, 245, 245));
+        table.setSelectionForeground(new Color(30, 30, 30));
     }
-
-    // 3. Apply bold text & custom colors (red Qty Left and colored Status labels)
+    
     StatusCellRenderer statusRenderer = new StatusCellRenderer();
     tblLowStock.getColumnModel().getColumn(0).setCellRenderer(statusRenderer);
     tblLowStock.getColumnModel().getColumn(2).setCellRenderer(statusRenderer);
@@ -152,6 +280,11 @@ public class DashboardFrame extends javax.swing.JFrame {
         jLabel3.setText("Dashboard");
         jLabel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 14, 0, 0));
         jLabel3.setPreferredSize(new java.awt.Dimension(190, 40));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
         roundedPanel1.add(jLabel3, java.awt.BorderLayout.CENTER);
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
@@ -235,7 +368,7 @@ public class DashboardFrame extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addGap(223, 223, 223)
                 .addComponent(jLabel7)
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addContainerGap(261, Short.MAX_VALUE))
         );
 
         getContentPane().add(sidebarPanel, java.awt.BorderLayout.LINE_START);
@@ -255,6 +388,11 @@ public class DashboardFrame extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("+ Add Clothes");
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
         roundedPanel2.add(jLabel10, java.awt.BorderLayout.CENTER);
 
         jPanel1.setOpaque(false);
@@ -433,20 +571,28 @@ public class DashboardFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        show(STOCK);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        show(ADD);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        show(ORDER);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        show(PROGRESS);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        show(DASHBOARD);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        show(ADD);
+    }//GEN-LAST:event_jLabel10MouseClicked
 
     /**
      * @param args the command line arguments

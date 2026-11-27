@@ -6,6 +6,13 @@ package fabrix;
 
 public class FABRIX extends javax.swing.JFrame {
     
+    public static final String DASHBOARD = "dashboard";
+    public static final String STOCK = "stock";
+    public static final String ADD = "add";
+    public static final String ORDER = "order";
+    public static final String PROGRESS = "progress";
+    public static final String ABOUT = "about";
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FABRIX.class.getName());
 
     /**

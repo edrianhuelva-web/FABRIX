@@ -2,4 +2,4 @@ orderId,supplier,placedAt,status,lines
 FRX-1045,Maison Textiles,2026-11-19T00:10:39,DELIVERED,FX-JN-011~Slim Fit Jeans~M~40~1590.0
 FRX-1046,Studio Linen,2026-11-22T00:10:39,SHIPPED,FX-LT-012~Linen Trousers~L~50~1190.0
 FRX-1047,Atelier Supply,2026-11-25T00:10:39,PROCESSING,FX-SB-003~Silk Blouse~M~30~2190.0|FX-KC-004~Knit Cardigan~L~25~1790.0
-FRX-1048,Maison Textiles,2026-11-27T00:10:39,PENDING,FX-LS-001~Linen Shirt~M~60~1290.0|FX-TT-002~Tailored Trousers~S~40~1890.0
+FRX-1048,Maison Textiles,2026-11-27T00:10:39,DELIVERED,FX-LS-001~Linen Shirt~M~60~1290.0|FX-TT-002~Tailored Trousers~S~40~1890.0

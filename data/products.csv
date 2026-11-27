@@ -1,6 +1,6 @@
 sku,name,category,collection,size,price,stock
-FX-LS-001,Linen Shirt,Tops,Linen / SS26,M,1290.0,3
-FX-TT-002,Tailored Trousers,Bottoms,Tailoring,S,1890.0,2
+FX-LS-001,Linen Shirt,Tops,Linen / SS26,M,1290.0,63
+FX-TT-002,Tailored Trousers,Bottoms,Tailoring,S,1890.0,42
 FX-SB-003,Silk Blouse,Tops,Silk Edit,M,2190.0,4
 FX-KC-004,Knit Cardigan,Outerwear,Knitwear,L,1790.0,3
 FX-HD-005,Oversized Heavy Hoodie,Outerwear,Heavyweight,L,1490.0,248
