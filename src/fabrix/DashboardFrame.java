@@ -9,7 +9,9 @@ import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.JTable;
-
+import java.io.IOException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Pacunduu
@@ -17,6 +19,7 @@ import javax.swing.JTable;
 public class DashboardFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DashboardFrame.class.getName());
+    private InventoryService service;
 
     /**
      * Creates new form DashboardFrame
@@ -24,6 +27,33 @@ public class DashboardFrame extends javax.swing.JFrame {
     public DashboardFrame() {
         initComponents();
         styleTables();
+        
+        try {
+            service = new InventoryService();
+            loadDashboardData();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Error loading data: " + ex.getMessage());
+        }
+    }
+    public void loadDashboardData() {
+        // Update the 3 top cards
+        lblTotalItems.setText(String.format("%,d", service.totalUnits()));
+        lblLowStock.setText(String.valueOf(service.lowStockAlerts()));
+        lblPendingOrders.setText(String.valueOf(service.pendingOrders()));
+
+        // Load Low Stock table
+        DefaultTableModel lowStockModel = (DefaultTableModel) tblLowStock.getModel();
+        lowStockModel.setRowCount(0);
+        for (Product p : service.lowStockItems(5)) {
+            lowStockModel.addRow(new Object[]{ p.getName(), p.getSize(), p.getStock() });
+        }
+
+        // Load Recent Orders table
+        DefaultTableModel ordersModel = (DefaultTableModel) tblRecentOrders.getModel();
+        ordersModel.setRowCount(0);
+        for (Order o : service.recentOrders(5)) {
+            ordersModel.addRow(new Object[]{ o.getId(), o.getSupplier(), o.getStatus().toString() });
+        }
     }
     private void styleTables() {
     // 1. Remove default gray borders from the ScrollPanes wrapping the tables
