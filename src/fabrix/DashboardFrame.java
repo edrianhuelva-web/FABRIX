@@ -64,11 +64,11 @@ public class DashboardFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         roundedPanel1 = new fabrix.RoundedPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         mainContentPanel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         roundedPanel2 = new fabrix.RoundedPanel();
@@ -124,35 +124,40 @@ public class DashboardFrame extends javax.swing.JFrame {
         jLabel3.setPreferredSize(new java.awt.Dimension(190, 40));
         roundedPanel1.add(jLabel3, java.awt.BorderLayout.CENTER);
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(220, 220, 220));
-        jLabel4.setText("View Stock");
-        jLabel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 16, 1, 1));
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(220, 220, 220));
-        jLabel5.setText("Add Clothes");
-        jLabel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 16, 1, 1));
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(220, 220, 220));
-        jLabel6.setText("Order Clothes");
-        jLabel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 16, 1, 1));
-        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         jLabel7.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(220, 220, 220));
         jLabel7.setText("Order Progress");
         jLabel7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 16, 1, 1));
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(220, 220, 220));
-        jLabel8.setText("About");
-        jLabel8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 16, 1, 1));
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setBackground(new java.awt.Color(20, 20, 20));
+        jButton1.setForeground(new java.awt.Color(220, 220, 220));
+        jButton1.setText("View Stock");
+        jButton1.setBorderPainted(false);
+        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+
+        jButton2.setBackground(new java.awt.Color(20, 20, 20));
+        jButton2.setForeground(new java.awt.Color(220, 220, 220));
+        jButton2.setText("Add Clothes");
+        jButton2.setBorderPainted(false);
+        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jButton2.addActionListener(this::jButton2ActionPerformed);
+
+        jButton3.setBackground(new java.awt.Color(20, 20, 20));
+        jButton3.setForeground(new java.awt.Color(220, 220, 220));
+        jButton3.setText("Order Clothes");
+        jButton3.setBorderPainted(false);
+        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jButton3.addActionListener(this::jButton3ActionPerformed);
+
+        jButton4.setBackground(new java.awt.Color(20, 20, 20));
+        jButton4.setForeground(new java.awt.Color(220, 220, 220));
+        jButton4.setText("View Stock");
+        jButton4.setActionCommand("Order Progress");
+        jButton4.setBorderPainted(false);
+        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jButton4.addActionListener(this::jButton4ActionPerformed);
 
         javax.swing.GroupLayout sidebarPanelLayout = new javax.swing.GroupLayout(sidebarPanel);
         sidebarPanel.setLayout(sidebarPanelLayout);
@@ -169,17 +174,16 @@ public class DashboardFrame extends javax.swing.JFrame {
                 .addGroup(sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(sidebarPanelLayout.createSequentialGroup()
                         .addComponent(roundedPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(21, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(sidebarPanelLayout.createSequentialGroup()
                         .addGroup(sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(sidebarPanelLayout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))))
+                                .addGap(196, 196, 196)
+                                .addComponent(jLabel7))
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         sidebarPanelLayout.setVerticalGroup(
@@ -191,17 +195,17 @@ public class DashboardFrame extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(49, 49, 49)
                 .addComponent(roundedPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
+                .addComponent(jButton1)
+                .addGap(21, 21, 21)
+                .addComponent(jButton2)
+                .addGap(21, 21, 21)
+                .addComponent(jButton3)
+                .addGap(21, 21, 21)
+                .addComponent(jButton4)
+                .addGap(223, 223, 223)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
-                .addContainerGap(452, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         getContentPane().add(sidebarPanel, java.awt.BorderLayout.LINE_START);
@@ -390,13 +394,29 @@ public class DashboardFrame extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         getContentPane().add(mainContentPanel, java.awt.BorderLayout.CENTER);
 
-        setBounds(0, 0, 1296, 809);
+        setBounds(0, 0, 1296, 807);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -424,6 +444,10 @@ public class DashboardFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -436,11 +460,7 @@ public class DashboardFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
