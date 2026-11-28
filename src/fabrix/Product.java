@@ -11,11 +11,12 @@ public class Product {
     public static final int LOW_STOCK_LIMIT = 10;
 
     private final String sku;
-    private final String name;
-    private final String category;
-    private final String collection;
-    private final String size;
-    private final double price;
+
+    private String name;
+    private String category;
+    private String collection;
+    private String size;
+    private double price;
     private int stock;
 
     public Product(String sku, String name, String category, String collection, String size, double price, int stock) {
@@ -36,6 +37,26 @@ public class Product {
     public double getPrice() { return price; }
     public int getStock() { return stock; }
     public void setStock(int stock) { this.stock = stock; }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setCollection(String collection) {
+        this.collection = collection;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     public Level getLevel() {
         if (stock <= 0) return Level.OUT_OF_STOCK;

@@ -108,6 +108,76 @@ public class InventoryService {
         productRepo.saveAll(products);
         return p;
     }
+    
+    public void updateProduct(Product p,
+            String name,
+            String category,
+            String collection,
+            String size,
+            String priceText,
+            String stockText) throws IOException {
+
+        if (p == null) {
+            throw new IllegalArgumentException("No product selected.");
+        }
+
+        name = name == null ? "" : name.trim();
+        category = category == null ? "" : category.trim();
+        collection = collection == null ? "" : collection.trim();
+        size = size == null ? "" : size.trim();
+
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("Enter a clothing name.");
+        }
+
+        if (category.isEmpty()) {
+            throw new IllegalArgumentException("Enter a category.");
+        }
+
+        if (size.isEmpty()) {
+            throw new IllegalArgumentException("Enter a size.");
+        }
+
+        double price;
+        int stock;
+
+        try {
+            price = Double.parseDouble(
+                    priceText.replace(",", "")
+                            .replace("\u20B1", "")
+                            .trim()
+            );
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Enter a valid price.");
+        }
+
+        try {
+            stock = Integer.parseInt(stockText.trim());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Enter a valid stock quantity.");
+        }
+
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative.");
+        }
+
+        if (stock < 0) {
+            throw new IllegalArgumentException("Stock cannot be negative.");
+        }
+
+        // Update the selected product
+        p.setName(name);
+        p.setCategory(category);
+        p.setCollection(
+                collection.isEmpty() ? "-" : collection
+        );
+        p.setSize(size);
+        p.setPrice(price);
+        p.setStock(stock);
+
+        // Save changes to CSV
+        productRepo.saveAll(products);
+    }
 
     public void removeProduct(Product p) throws IOException {
         if (p == null) throw new IllegalArgumentException("Select a product to remove.");
