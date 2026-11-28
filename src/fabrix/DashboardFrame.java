@@ -220,8 +220,6 @@ public class DashboardFrame extends javax.swing.JFrame {
         sidebarPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        roundedPanel1 = new fabrix.RoundedPanel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -229,30 +227,8 @@ public class DashboardFrame extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         mainContentPanel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        roundedPanel2 = new fabrix.RoundedPanel();
-        jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        roundedPanel4 = new fabrix.RoundedPanel();
-        jLabel11 = new javax.swing.JLabel();
-        lblTotalItems = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        roundedPanel5 = new fabrix.RoundedPanel();
-        jLabel12 = new javax.swing.JLabel();
-        lblLowStock = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        roundedPanel3 = new fabrix.RoundedPanel();
-        jLabel15 = new javax.swing.JLabel();
-        lblPendingOrders = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        roundedPanel6 = new fabrix.RoundedPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblLowStock = new javax.swing.JTable();
-        roundedPanel7 = new fabrix.RoundedPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblRecentOrders = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FABRIX • Dashboard");
@@ -270,22 +246,6 @@ public class DashboardFrame extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(160, 160, 160));
         jLabel2.setText("INVENTORY MANAGEMENT");
         jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 14, 0, 0));
-
-        roundedPanel1.setBackground(new java.awt.Color(238, 198, 67));
-        roundedPanel1.setBorderColor(new java.awt.Color(238, 198, 67));
-        roundedPanel1.setCornerRadius(10);
-        roundedPanel1.setLayout(new java.awt.BorderLayout());
-
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel3.setText("Dashboard");
-        jLabel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 14, 0, 0));
-        jLabel3.setPreferredSize(new java.awt.Dimension(190, 40));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
-        roundedPanel1.add(jLabel3, java.awt.BorderLayout.CENTER);
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(220, 220, 220));
@@ -335,19 +295,14 @@ public class DashboardFrame extends javax.swing.JFrame {
             .addGroup(sidebarPanelLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(sidebarPanelLayout.createSequentialGroup()
-                        .addComponent(roundedPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(sidebarPanelLayout.createSequentialGroup()
-                        .addGroup(sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(sidebarPanelLayout.createSequentialGroup()
-                                .addGap(196, 196, 196)
-                                .addComponent(jLabel7))
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(196, 196, 196)
+                        .addComponent(jLabel7))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         sidebarPanelLayout.setVerticalGroup(
             sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,9 +311,7 @@ public class DashboardFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(49, 49, 49)
-                .addComponent(roundedPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addGap(112, 112, 112)
                 .addComponent(jButton1)
                 .addGap(21, 21, 21)
                 .addComponent(jButton2)
@@ -368,7 +321,7 @@ public class DashboardFrame extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addGap(223, 223, 223)
                 .addComponent(jLabel7)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         getContentPane().add(sidebarPanel, java.awt.BorderLayout.LINE_START);
@@ -379,162 +332,13 @@ public class DashboardFrame extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(30, 30, 30));
         jLabel9.setText("Dashboard");
 
-        roundedPanel2.setBackground(new java.awt.Color(238, 198, 67));
-        roundedPanel2.setBorderColor(new java.awt.Color(238, 198, 67));
-        roundedPanel2.setCornerRadius(10);
-        roundedPanel2.setPreferredSize(new java.awt.Dimension(150, 40));
-        roundedPanel2.setLayout(new java.awt.BorderLayout());
-
-        jLabel10.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("+ Add Clothes");
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel10MouseClicked(evt);
-            }
-        });
-        roundedPanel2.add(jLabel10, java.awt.BorderLayout.CENTER);
-
         jPanel1.setOpaque(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(990, 130));
         jPanel1.setLayout(new java.awt.GridLayout(1, 3, 20, 0));
 
-        roundedPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        roundedPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(18, 22, 18, 22));
-        roundedPanel4.setCornerRadius(14);
-        roundedPanel4.setLayout(new javax.swing.BoxLayout(roundedPanel4, javax.swing.BoxLayout.Y_AXIS));
-
-        jLabel11.setBackground(new java.awt.Color(115, 115, 115));
-        jLabel11.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(115, 115, 115));
-        jLabel11.setText("Total Items");
-        roundedPanel4.add(jLabel11);
-
-        lblTotalItems.setFont(new java.awt.Font("SansSerif", 1, 28)); // NOI18N
-        lblTotalItems.setForeground(new java.awt.Color(30, 30, 30));
-        lblTotalItems.setText("1,248");
-        lblTotalItems.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 6, 0, 0));
-        roundedPanel4.add(lblTotalItems);
-
-        jLabel13.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(115, 115, 115));
-        jLabel13.setText("Across your collection");
-        roundedPanel4.add(jLabel13);
-
-        jPanel1.add(roundedPanel4);
-
-        roundedPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        roundedPanel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(18, 22, 18, 22));
-        roundedPanel5.setCornerRadius(14);
-        roundedPanel5.setLayout(new javax.swing.BoxLayout(roundedPanel5, javax.swing.BoxLayout.Y_AXIS));
-
-        jLabel12.setBackground(new java.awt.Color(115, 115, 115));
-        jLabel12.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(115, 115, 115));
-        jLabel12.setText("Low Stock");
-        roundedPanel5.add(jLabel12);
-
-        lblLowStock.setFont(new java.awt.Font("SansSerif", 1, 28)); // NOI18N
-        lblLowStock.setForeground(new java.awt.Color(30, 30, 30));
-        lblLowStock.setText("12");
-        lblLowStock.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 6, 0, 0));
-        roundedPanel5.add(lblLowStock);
-
-        jLabel14.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(115, 115, 115));
-        jLabel14.setText("Items need replenishing");
-        roundedPanel5.add(jLabel14);
-
-        jPanel1.add(roundedPanel5);
-
-        roundedPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        roundedPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(18, 22, 18, 22));
-        roundedPanel3.setCornerRadius(14);
-        roundedPanel3.setLayout(new javax.swing.BoxLayout(roundedPanel3, javax.swing.BoxLayout.Y_AXIS));
-
-        jLabel15.setBackground(new java.awt.Color(115, 115, 115));
-        jLabel15.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(115, 115, 115));
-        jLabel15.setText("Pending Orders");
-        roundedPanel3.add(jLabel15);
-
-        lblPendingOrders.setFont(new java.awt.Font("SansSerif", 1, 28)); // NOI18N
-        lblPendingOrders.setForeground(new java.awt.Color(30, 30, 30));
-        lblPendingOrders.setText("8");
-        lblPendingOrders.setBorder(javax.swing.BorderFactory.createEmptyBorder(6, 6, 0, 0));
-        roundedPanel3.add(lblPendingOrders);
-
-        jLabel16.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(115, 115, 115));
-        jLabel16.setText("Awaiting confirmation");
-        roundedPanel3.add(jLabel16);
-
-        jPanel1.add(roundedPanel3);
-
         jPanel2.setOpaque(false);
         jPanel2.setPreferredSize(new java.awt.Dimension(990, 440));
         jPanel2.setLayout(new java.awt.GridLayout(1, 2, 20, 0));
-
-        roundedPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        roundedPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(22, 24, 22, 24));
-        roundedPanel6.setCornerRadius(14);
-        roundedPanel6.setLayout(new java.awt.BorderLayout(0, 16));
-
-        jLabel17.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(30, 30, 30));
-        jLabel17.setText("Low Stock Items");
-        roundedPanel6.add(jLabel17, java.awt.BorderLayout.PAGE_START);
-
-        tblLowStock.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Linen Shirt", " M", "3"},
-                {"Tailored Trousers", "S", "2"},
-                {"Silk Blouse", "M", "4"},
-                {"Knit Cardigan", "L", "3"}
-            },
-            new String [] {
-                "Item", "Size", "Qty Left"
-            }
-        ));
-        tblLowStock.setGridColor(new java.awt.Color(238, 236, 230));
-        tblLowStock.setRowHeight(42);
-        tblLowStock.setSelectionBackground(new java.awt.Color(251, 250, 245));
-        tblLowStock.setShowHorizontalLines(true);
-        jScrollPane1.setViewportView(tblLowStock);
-
-        roundedPanel6.add(jScrollPane1, java.awt.BorderLayout.CENTER);
-
-        jPanel2.add(roundedPanel6);
-
-        roundedPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        roundedPanel7.setBorder(javax.swing.BorderFactory.createEmptyBorder(22, 24, 22, 24));
-        roundedPanel7.setCornerRadius(14);
-        roundedPanel7.setLayout(new java.awt.BorderLayout(0, 16));
-
-        jLabel18.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
-        jLabel18.setText("Recent Orders");
-        roundedPanel7.add(jLabel18, java.awt.BorderLayout.PAGE_START);
-
-        tblRecentOrders.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"#FRX-1048", "Maison Textiles", "Pending"},
-                {"#FRX-1047", "Atelier Supply", "Processing"},
-                {"#FRX-1046", "Studio Linen", "Shipped"},
-                {"#FRX-1045", "Maison Textiles", "Delivered"}
-            },
-            new String [] {
-                "Order #", "Supplier", "Status"
-            }
-        ));
-        tblRecentOrders.setGridColor(new java.awt.Color(238, 236, 230));
-        tblRecentOrders.setRowHeight(42);
-        tblRecentOrders.setSelectionBackground(new java.awt.Color(251, 250, 245));
-        tblRecentOrders.setShowHorizontalLines(true);
-        jScrollPane2.setViewportView(tblRecentOrders);
-
-        roundedPanel7.add(jScrollPane2, java.awt.BorderLayout.CENTER);
-
-        jPanel2.add(roundedPanel7);
 
         javax.swing.GroupLayout mainContentPanelLayout = new javax.swing.GroupLayout(mainContentPanel);
         mainContentPanel.setLayout(mainContentPanelLayout);
@@ -547,22 +351,19 @@ public class DashboardFrame extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(mainContentPanelLayout.createSequentialGroup()
                         .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(roundedPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(151, 151, 151))
         );
         mainContentPanelLayout.setVerticalGroup(
             mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainContentPanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(roundedPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                .addComponent(jLabel9)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         getContentPane().add(mainContentPanel, java.awt.BorderLayout.CENTER);
@@ -585,14 +386,6 @@ public class DashboardFrame extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         show(PROGRESS);
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        show(DASHBOARD);
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        show(ADD);
-    }//GEN-LAST:event_jLabel10MouseClicked
 
     /**
      * @param args the command line arguments
@@ -625,36 +418,12 @@ public class DashboardFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblLowStock;
-    private javax.swing.JLabel lblPendingOrders;
-    private javax.swing.JLabel lblTotalItems;
     private javax.swing.JPanel mainContentPanel;
-    private fabrix.RoundedPanel roundedPanel1;
-    private fabrix.RoundedPanel roundedPanel2;
-    private fabrix.RoundedPanel roundedPanel3;
-    private fabrix.RoundedPanel roundedPanel4;
-    private fabrix.RoundedPanel roundedPanel5;
-    private fabrix.RoundedPanel roundedPanel6;
-    private fabrix.RoundedPanel roundedPanel7;
     private javax.swing.JPanel sidebarPanel;
-    private javax.swing.JTable tblLowStock;
-    private javax.swing.JTable tblRecentOrders;
     // End of variables declaration//GEN-END:variables
 }
