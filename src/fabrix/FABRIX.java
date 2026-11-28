@@ -51,8 +51,6 @@ public class FABRIX extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        System.out.print("Hello");
-        System.out.print("World");
         
         
         /* Set the Nimbus look and feel */
