@@ -26,6 +26,7 @@ public class DashboardFrame extends javax.swing.JFrame {
      */
     public DashboardFrame() {
         initComponents();
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/fabrix/logo.png")).getImage());
         styleTables();
         styleSidebar();
         
@@ -255,7 +256,7 @@ public class DashboardFrame extends javax.swing.JFrame {
         tblRecentOrders = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("FABRIX • Dashboard");
+        setTitle("FABRIX");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         sidebarPanel.setBackground(new java.awt.Color(20, 20, 20));
@@ -317,7 +318,6 @@ public class DashboardFrame extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(20, 20, 20));
         jButton4.setForeground(new java.awt.Color(220, 220, 220));
         jButton4.setText("Order Progress");
-        jButton4.setActionCommand("Order Progress");
         jButton4.setBorderPainted(false);
         jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         jButton4.addActionListener(this::jButton4ActionPerformed);
